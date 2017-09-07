@@ -1,0 +1,2 @@
+# crud
+A Python web app that demonstrates Create Update Delete (CRUD) functions. This web based app demonstrates in a Pythonic way creating, updating and deleting structured information (that's why it's  called a 'CRUD' app). It allows users to sign in using a secure password and view a list of birds by their English  name. It displays other information about birds, as selected by the user, in an additional pane on the same page.
