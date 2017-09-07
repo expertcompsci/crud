@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Birds</title>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <link data-require="bootstrap@*" data-semver="3.0.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.0.0" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+ </head>
+  <body class="col-sm-12">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <div id="user" class=container userattr="userval">
+		<div class="jumbotron">
+	        {% if logged_in %}
+	            <p>Hi, {{ user_nickname }}. <a href=/logout someattr="someval"> Logout </a></p>
+	        {% else %}
+	            Login <a href=/login> here</a>. Or, don't have an account? Sign up <a href=/signup> here</a>.
+			{% endif %}
+		</div>
+    </div>
+    <!-- Scripts at end of page for faster page load -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-sanitize.min.js"></script>
+    {% block content %}{% endblock %}
+  </body>
+</html>

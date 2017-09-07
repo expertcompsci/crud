@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="jumbotron" ng-show="init">
+	  <h3>Add New Bird</h3>
+	  <div class="detail-box">
+	<span class="detail-label">English Name:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.english_name" name="sciName" value="{{bird.english_name}}"></span>
+	<span class="detail-label">Scientific Name:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.scientific_name" name="sciName" value="{{bird.scientific_name}}"></span>
+	<span class="detail-label">Flight Range:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.flight_range" name="flight_range" value="{{bird.flight_range}}"></span>
+	<span class="detail-label">Order:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.bio_order" name="order" value="{{bird.bio_order}}"></span>
+	<span class="detail-label">Family:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.family" name="family" value="{{bird.family}}"></span>
+	<span class="detail-label">Category:</span>
+	<span class="ctl-spn"><input type="text" ng-model="bird.category" name="category" value="{{bird.category}}"></span>
+	<span class="detail-btn"><input type="button" value="Add Bird" ng-click="addBird(bird)"></span>
+	<span class="detail-btn"><input type="button" value="Cancel" ng-click="cancel()"></span>
+</div>
+</div>
+</div>

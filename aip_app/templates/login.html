@@ -1,0 +1,35 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+<div class="col-sm-12">
+<h3>Log In</h3>
+<span style="color: red;">{{login_msg}}</span>
+<form action="" method="post" name="login" >
+    {{ form.hidden_tag() }}
+    <div class=error-box>
+        {% for error in form.user_name.errors %}
+          <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+        {% for error in form.password.errors %}
+          <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+    </div>
+	<span class="detail-label">User Name: </span><span class="ctl-spn"> {{ form.user_name }}</span></br>
+	<span class="detail-label">Password: </span><span class="ctl-spn"> {{ form.password }}</span></br>
+	<div class="checkbox">
+	  <label>
+	    {{ form.remember_me }}
+	    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+	    Remember Me
+	  </label>
+	</div>
+<!--<span class="detail-label">Remember Me: </span><span class="ctl-spn-radio"> {{ form.remember_me }}</span></br>-->
+<span class="detail-btn"><input class="detail-frm-btn"type="submit" value="Sign In"></span>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

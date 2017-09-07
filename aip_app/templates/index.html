@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+{% if logged_in %}
+	{% raw %}
+<div class="container" ng-app="birdsApp">
+	<div class="row">
+		<div class="col-sm-3" ng-controller="MainCntl">
+			<div class="list-group">
+				<div class="list-group-item">
+					<span class="glyphicon glyphicon-plus-sign" ng-click="newBird()"></span>
+					<span class="glyphicon glyphicon-chevron-up" ng-click="prevPage()" ng-class="prevPageDisabled()"></span>
+					<span class="glyphicon glyphicon-chevron-down" ng-click="nextPage()" ng-class="nextPageDisabled()"></span>
+					<span ><input class="search-input" type="text" ng-show="haveBirds()" ng-model="target" placeholder="Search by name..."></span>
+				</div>
+				<a href="/detail/{{bird.id}}" class="list-group-item" ng-repeat="bird in birds">
+				{{bird.english_name}}
+				</a>
+				<a class="list-group-item" ng-click="nextPage()">
+					<span class="glyphicon glyphicon-chevron-down" ng-class="nextPageDisabled()"></span>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div ng-view>
+		</div>
+	</div>
+</div>
+	{% endraw %}
+    <script src="js/app.js"></script>
+{% else %}
+	<div class="container">
+		<div class="jumbotron">
+			<p>Welcome to the <b>Birds</b> app.</p>
+			<p>
+This web based app demonstrates in a Pythonic way creating, updating and deleting structured information (that's why it's 
+called a 'CRUD' app). It allows users to sign in using a secure password and view a list of birds by their English 
+name. It displays other information about birds, as selected by the user, in an additional pane on the same page.
+
+Some of the features of the app of interest to users are:
+<ul>
+	<li>Fully responsive user interface for mobile, tablet, or desktop</li>
+	<li>Substring search of English name</li>
+	<li>Paginated listing by English name</li>
+	<li>Example data set includes more than 13,000 birds</li>
+	<li>"Remember me" capable sign in</li>
+</ul>
+
+Some features more of interest to administrators:
+<ul>
+	<li>User authorization includes friendly/nickname</li>
+	<li>Database initialization UI (no external tool required)</li>
+	<li>Database initialization includes adding the Administrator user</li>
+	<li>Only Salted and hashed passwords stored in a database</li>
+	<li>Cross Site Subscription Forgery (CRSF) protection</li>
+	<li>Cookie based sessions</li>
+	<li>SQL Injection protection</li>
+</ul>
+
+Some languages, technologies, and frameworks employed are:
+<ul>
+	<li>Python - for all server implementaion</li>
+	<li>Javascript - for all browser scripting</li>
+	<li>SQL - for all database access</li>
+	<li>SQLite disk based database storage, query, importing etc.</li>
+	<li>SQLAlchemy database Object Request Manager (ORM) framework</li>
+	<li>Flask - Python web container/server framework</li>
+	<li>Jinja server side templating</li>
+	<li>RESTful application interface</li>
+	<li>Efficient, paginated, XHR data retreival in JSON format</li>
+	<li>Bootstrap CSS</li>
+	<li>Angular (1.x) Model, Views, and Controllers</li>
+	<li>BCrypt encryption libraray with timing attack protection</li>
+	<li>Sessions use cookies that are cryptographically signed</li>
+</ul>
+
+
+			</p>
+		</div>
+	</div>
+{% endif %}
+{% endblock %}
