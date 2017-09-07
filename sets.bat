@@ -1,3 +1,3 @@
 set FLASK_APP=aip_app
 set FLASK_DEBUG=1
-set PYTHONPATH=c:\Users\ben.lester\AnacondaProjects\crud\aip_app
+REM set PYTHONPATH=c:\Users\<your user folder here>\AnacondaProjects\crud\aip_app
